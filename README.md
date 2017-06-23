@@ -12,9 +12,9 @@ Includes the following technologies:
 
 
 ## Setup
-// $ npm install
-// To use in dev, $ npm run start
-// To use in prod, $ npm run build; $ npm run prod
+// $ npm install <br/>
+// To use in dev, $ npm run start <br/>
+// To use in prod, $ npm run build; $ npm run prod <br/>
 
 ### Build and run docker images with:
 $ bash build.sh
