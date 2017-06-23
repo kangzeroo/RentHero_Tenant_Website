@@ -1,4 +1,6 @@
-# The Ultimate React Jumpstart
+# Rentburrow Tenant
+The public facing website for future and current tenants. Use it to search for properties, sign leases and view your tenant profile.
+<br/><br/>
 Includes the following technologies:
 - NodeJS v6.3.1 LTS
 - ExpressJS with HTTPS
