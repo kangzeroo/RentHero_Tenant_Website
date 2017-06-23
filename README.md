@@ -17,13 +17,13 @@ Includes the following technologies:
 // To use in prod, $ npm run build; $ npm run prod <br/>
 
 ### Build and run docker images with:
-$ bash build.sh
-$ bash run.sh
+$ bash build.sh<br/>
+$ bash run.sh<br/>
 
 ### Check docker images and containers with:
-$ docker images
-$ docker ps
+$ docker images<br/>
+$ docker ps<br/>
 
 ### remove docker images and containers with:
-$ docker rm <CONTAINER_ID>
-$ docker rmi <IMAGE_ID>
+$ docker rm <CONTAINER_ID><br/>
+$ docker rmi <IMAGE_ID><br/>
