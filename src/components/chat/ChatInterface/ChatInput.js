@@ -45,12 +45,16 @@ class ChatInput extends Component {
         _id: uuid.v4(),
         message_id: uuid.v4(),
         sender_id: this.props.tenant.tenant_id,
-        receiver_id: this.props.landlord_id,
-        building_id: this.props.building_id,
+        receiver_id: this.props.landlord_target.landlord_id,
+        building_id: this.props.building_target.building_id,
         tenant_id: this.props.tenant.tenant_id,
-        landlord_id: this.props.landlord_id,
-        channel_id: `${this.props.tenant.tenant_id}_${this.props.landlord_id}_${this.props.building_id}`,
+        landlord_id: this.props.landlord_target.landlord_id,
+        channel_id: `${this.props.tenant.tenant_id}_${this.props.landlord_target.landlord_id}_${this.props.building_target.building_id}`,
         contents: this.state.inputText,
+        address: this.props.building_target.formatted_address,
+        building_type: this.props.building_target.building_type,
+        landlord_name: this.props.landlord_target.landlord_name,
+        tenant_name: this.props.tenant.tenant_name,
       }
       this.setState({
         inputText: '',
@@ -94,9 +98,9 @@ class ChatInput extends Component {
 
 ChatInput.propTypes = {
   sendChatMessage: PropTypes.func.isRequired,
-  building_id: PropTypes.number.isRequired,
+  building_target: PropTypes.object.isRequired,
   tenant: PropTypes.object.isRequired,
-  landlord_id: PropTypes.string.isRequired,
+  landlord_target: PropTypes.object.isRequired,
 }
 
 ChatInput.defaultProps = {

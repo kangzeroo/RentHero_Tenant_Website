@@ -1,10 +1,10 @@
 import { createLogger } from 'redux-logger'
 import {
-
+	
 } from './actions/action_types'
 
 const listOfBlacklisted = [
-	
+
 ]
 
 const filteredLogger = createLogger({

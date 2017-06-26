@@ -6,7 +6,7 @@ import {
   INITIATE_POUCHDB,
 } from '../actions/action_types'
 import { addChatHistory } from '../actions/messaging/tenant_messaging'
-import { InitializePouchDb, SendMessage, getMessagesFromChannels } from '../api/messaging/messenger_api'
+import { InitializePouchDb, SendMessage, getMessagesFromChannels } from '../api/messaging/pouchdb_api'
 
 // allows for mango queries
 PouchDB.plugin(require('pouchdb-find'))

@@ -4,7 +4,7 @@ import Radium from 'radium'
 import PropTypes from 'prop-types'
 import {
   xMidBlue
-} from '../../../styles/base_colors'
+} from '../../styles/base_colors'
 
 
 class ChatIcon extends Component {

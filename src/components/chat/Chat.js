@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
+import {
+  xMidBlue
+} from '../../styles/base_colors'
 import ChatContainer from './ChatContainer'
-import ChatIcon from './ChatInterface/ChatIcon'
+import ChatIcon from './ChatIcon'
 
 class Chat extends Component {
 
@@ -76,9 +79,14 @@ const comStyles = () => {
 			alignItems: 'flex-end',
 			position: 'absolute',
 			bottom: '20px',
-			right: '20px'
+			right: '20px',
 		},
 		chatcontainer: {
+			minWidth: '380px',
+			maxWidth: '380px',
+			height: '600px',
+			border: `4px solid ${xMidBlue}`,
+			borderRadius: '25px',
 		},
 		icon: {
 		}

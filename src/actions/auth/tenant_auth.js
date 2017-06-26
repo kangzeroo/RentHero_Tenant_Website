@@ -18,7 +18,8 @@ export const saveTenantProfile = (userId) => {
 		dispatch({
 			type: SET_TENANT_PROFILE,
 			payload: {
-        tenant_id: userId
+        tenant_id: userId,
+				tenant_name: 'Jake Malliaros',
       }
 		})
 	}

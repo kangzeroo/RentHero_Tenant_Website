@@ -6,7 +6,7 @@ import messageReducer from './messaging/messaging_reducer'
 const rootReducer = combineReducers({
 	tenant: tenantReducer,
 	selection: selectionReducer,
-	messages: messageReducer,
+	messaging: messageReducer,
 })
 
 export default rootReducer

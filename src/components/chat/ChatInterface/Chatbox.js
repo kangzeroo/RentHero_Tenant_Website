@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import {
   xMidBlue
 } from '../../../styles/base_colors'
-import { sendChatMessage } from '../../../actions/messaging/tenant_messaging'
+import { sendChatMessage, backToChatChannels } from '../../../actions/messaging/tenant_messaging'
 import ChatFeed from './ChatFeed'
 import ChatInput from './ChatInput'
 
@@ -13,10 +13,10 @@ class Chatbox extends Component {
 
 	render() {
 		return (
-			<div style={comStyles().container}>
+			<div id='chatbox' style={comStyles().container}>
         <div style={headerStyles().header}>
-          <i className='ion-chevron-left' onClick={() => this.props.hideChat()} style={headerStyles().icon} />
-          <p style={headerStyles().recipient_name}>Atlas Housing</p>
+          <i className='ion-chevron-left' onClick={() => this.props.backToChatChannels()} style={headerStyles().icon} />
+          <p style={headerStyles().recipient_name}>{this.props.landlord_target.landlord_name}</p>
           <i className='ion-close-round' onClick={() => this.props.hideChat()} style={headerStyles().icon} />
         </div>
         <ChatFeed
@@ -25,8 +25,8 @@ class Chatbox extends Component {
         />
         <ChatInput
           tenant={this.props.tenant}
-          landlord_id={this.props.landlord_id}
-          building_id={this.props.building_id}
+          landlord_target={this.props.landlord_target}
+          building_target={this.props.building_target}
           sendChatMessage={this.props.sendChatMessage}
         />
 			</div>
@@ -37,8 +37,8 @@ class Chatbox extends Component {
 Chatbox.propTypes = {
   tenant: PropTypes.object,
   all_messages: PropTypes.array.isRequired,
-  building_id: PropTypes.number.isRequired,
-  landlord_id: PropTypes.string.isRequired,
+  building_target: PropTypes.object.isRequired,
+  landlord_target: PropTypes.object.isRequired,
   sendChatMessage: PropTypes.func.isRequired,
   hideChat: PropTypes.func.isRequired,
 }
@@ -52,14 +52,15 @@ const RadiumHOC = Radium(Chatbox)
 function mapStateToProps(state) {
 	return {
     tenant: state.tenant.tenant_profile,
-    all_messages: state.messages.all_messages,
-    building_id: state.selection.current_building.building_id,
-    landlord_id: state.selection.current_landlord.landlord_id,
+    all_messages: state.messaging.all_messages,
+    building_target: state.messaging.building_target,
+    landlord_target: state.messaging.landlord_target,
 	}
 }
 
 export default connect(mapStateToProps, {
   sendChatMessage,
+  backToChatChannels,
 })(RadiumHOC)
 
 // ===============================
@@ -67,12 +68,10 @@ export default connect(mapStateToProps, {
 const comStyles = () => {
 	return {
 		container: {
-      minWidth: '380px',
-      maxWidth: '380px',
-      height: '600px',
-      margin: '0px 0px 20px 0px',
-      border: `4px solid ${xMidBlue}`,
-      borderRadius: '25px',
+      minWidth: '100%',
+      minHeight: '100%',
+      maxWidth: '100%',
+      maxHeight: '100%',
       display: 'flex',
       flexDirection: 'column',
       overflow: 'hidden',
@@ -101,7 +100,9 @@ const headerStyles = () => {
       flex: 4
     },
     icon: {
-      flex: 1
+      flex: 1,
+      fontSize: '2em',
+      cursor: 'pointer',
     }
   }
 }

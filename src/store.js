@@ -2,7 +2,7 @@ import reduxThunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import filteredLogger from './store_ignore'
 import reducers from './reducers'
-import establishWebSockets from './middleware/websocket'
+// import establishWebSockets from './middleware/websocket_middleware'
 import pouchDB from './middleware/pouchdb_middleware'
 
 // reduxThunk allows us to store functions inside our actions (instead of only objects)

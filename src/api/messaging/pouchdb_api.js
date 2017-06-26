@@ -35,7 +35,22 @@ export const getMessagesFromChannels = (db, user_id) => {
               }
             ]
           },
-          fields: ['_id', 'sender_id', 'receiver_id', 'contents', 'sent_at', 'message_id'],
+          fields: [
+            '_id',
+            'sender_id',
+            'receiver_id',
+            'contents',
+            'sent_at',
+            'message_id',
+            'channel_id',
+            'address',
+            'building_id',
+            'building_type',
+            'landlord_id',
+            'landlord_name',
+            'tenant_name',
+            'seen_at',
+          ],
           // sort: [
           //   { sent_at: 'asc' }
           // ]
